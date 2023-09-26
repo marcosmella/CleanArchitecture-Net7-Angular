@@ -1,0 +1,66 @@
+<form class="ml-10" [formGroup]="categoryForm" (ngSubmit)="onSubmit()">    
+  <div class="row">
+    <div class="col-md-6">
+      <mat-form-field>
+        <mat-label>Name:</mat-label>
+        <input matInput id="name" formControlName="name" required/>
+      </mat-form-field> 
+      <div *ngIf="categoryForm.controls['name'].dirty && categoryForm.controls['name'].invalid" class="alert alert-danger">
+        <mat-error *ngIf="name?.hasError('required')">Name is required.</mat-error>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">   
+      <mat-form-field>
+        <mat-label>Min Weight (kg):</mat-label>
+        <input matInput type="number" id="minWeightKg" formControlName="minWeightKg" required/>
+      </mat-form-field>
+      <div *ngIf="categoryForm.controls['minWeightKg'].dirty && categoryForm.controls['minWeightKg'].invalid" class="alert alert-danger">
+        <mat-error *ngIf="minWeightKg?.hasError('required')">Min Weight is required.</mat-error>
+        <mat-error *ngIf="minWeightKg?.hasError('pattern')">Invalid weight format. Use up to two decimal places.</mat-error>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field>
+        <mat-label for="maxWeightKg">Max Weight (kg):</mat-label>
+        <input matInput type="number" id="maxWeightKg" formControlName="maxWeightKg" required/>
+      </mat-form-field>
+      <div *ngIf="categoryForm.controls['maxWeightKg'].dirty && categoryForm.controls['maxWeightKg'].invalid" class="alert alert-danger">
+        <mat-error *ngIf="maxWeightKg?.hasError('required')">Max Weight is required.</mat-error>
+        <mat-error *ngIf="maxWeightKg?.hasError('pattern')">Invalid weight format. Use up to two decimal places.</mat-error>
+      </div>
+      <div class="col-md-6">      
+        <div>CHOOSE 1 ICON:</div>
+        <button type="button" mat-icon-button [disabled]="categoryIcons.directions_car" (click)="categoryForm.controls['iconUrl'].setValue('directions_car')">
+          <mat-icon>directions_car</mat-icon>
+        </button>
+        <button type="button" mat-icon-button [disabled]="categoryIcons.local_shipping" (click)="categoryForm.controls['iconUrl'].setValue('local_shipping')">
+          <mat-icon>local_shipping</mat-icon>
+        </button>
+        <button type="button" mat-icon-button [disabled]="categoryIcons.directions_bus" color="primary" (click)="categoryForm.controls['iconUrl'].setValue('directions_bus')">
+          <mat-icon>directions_bus</mat-icon>
+        </button>
+        <button type="button" mat-icon-button [disabled]="categoryIcons.directions_railway" color="accent" (click)="categoryForm.controls['iconUrl'].setValue('directions_railway')">
+          <mat-icon>directions_railway</mat-icon>
+        </button>
+        <button type="button" mat-icon-button [disabled]="categoryIcons.directions_boat" color="warn" (click)="categoryForm.controls['iconUrl'].setValue('directions_boat')">
+          <mat-icon>directions_boat</mat-icon>
+        </button>
+        <button type="button" mat-icon-button [disabled]="categoryIcons.flight" color="warn" (click)="categoryForm.controls['iconUrl'].setValue('flight')">
+          <mat-icon>flight</mat-icon>
+        </button>      
+      </div>
+      <mat-form-field>
+        <mat-label>Icon URL:</mat-label>
+        <input matInput id="iconUrl" formControlName="iconUrl" required/>
+        </mat-form-field>
+        <div *ngIf="categoryForm.controls['iconUrl'].dirty && categoryForm.controls['iconUrl'].invalid" class="alert alert-danger">
+          <mat-error *ngIf="iconUrl?.hasError('required')">Icon URL is required.</mat-error>
+        </div>
+        <div>
+      </div>
+    </div>
+  </div>
+  <button mat-raised-button type="submit" [disabled]="!categoryForm.valid" class="primary">Save</button>
+  </form>

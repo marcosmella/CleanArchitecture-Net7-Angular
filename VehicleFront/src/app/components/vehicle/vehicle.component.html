@@ -1,0 +1,45 @@
+<form class="ml-10" [formGroup]="vehicleForm" (ngSubmit)="onSubmit()">
+  <div class="row">
+    <div class="col-md-6">
+      <mat-form-field>
+      <mat-label>Owner's Name:</mat-label>
+      <input matInput id="ownerName" formControlName="ownerName" required/>
+      </mat-form-field>
+      <div *ngIf="vehicleForm.controls['ownerName'].dirty && vehicleForm.controls['ownerName'].invalid" class="alert alert-danger">
+        <mat-error *ngIf="ownerName?.hasError('required')">Owner's Name is required.</mat-error>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field>
+        <mat-label>Manufacturer:</mat-label>
+      <input matInput id="manufacturer" formControlName="manufacturer" required/>
+      </mat-form-field>
+      <div *ngIf="vehicleForm.controls['manufacturer'].dirty && vehicleForm.controls['manufacturer'].invalid" class="alert alert-danger">
+        <mat-error *ngIf="manufacturer?.hasError('required')">Manufacturer is required.</mat-error>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">   
+      <mat-form-field>
+        <mat-label>Year of Manufacture:</mat-label>
+      <input matInput type="number" id="yearOfManufacture" formControlName="yearOfManufacture" required/>
+      </mat-form-field>
+      <div *ngIf="vehicleForm.controls['yearOfManufacture'].dirty && vehicleForm.controls['yearOfManufacture'].invalid" class="alert alert-danger">
+        <mat-error *ngIf="yearOfManufacture?.hasError('required')">Year of Manufacture is required.</mat-error>
+      </div>
+    </div>
+    <div class="col-md-6">   
+      <mat-form-field>
+        <mat-label>Weight (kg):</mat-label>
+        <input matInput type="number" id="weightKg" formControlName="weightKg" required/>
+      </mat-form-field>
+      <div *ngIf="vehicleForm.controls['weightKg'].dirty && vehicleForm.controls['weightKg'].invalid" class="alert alert-danger">
+        <mat-error *ngIf="weightKg?.hasError('required')">Weight is required.</mat-error>
+        <mat-error *ngIf="weightKg?.hasError('pattern')">Invalid weight format. Use up to two decimal places.</mat-error>
+      </div>
+    </div>
+  </div>
+  <button mat-raised-button type="submit" [disabled]="!vehicleForm.valid" class="primary">Save</button>
+  </form>
+  

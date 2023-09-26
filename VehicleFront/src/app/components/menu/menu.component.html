@@ -1,0 +1,24 @@
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Vehicle Application</span>
+  </mat-toolbar>
+  <mat-drawer-container autosize>
+    <mat-drawer #drawer opened="true" mode="side" >
+        <mat-nav-list>
+            <mat-list-item routerLink="/vehicle-list">
+                <button mat-button><mat-icon>directions_car</mat-icon> Vehicle</button>
+            </mat-list-item>
+            <mat-list-item  routerLink="/category-list">
+                <button mat-button><mat-icon>category</mat-icon> Category</button>
+            </mat-list-item>
+        </mat-nav-list>
+  
+    </mat-drawer>
+    <mat-drawer-content style="height: 1000px;">
+      <div>
+        <router-outlet #o="outlet"></router-outlet>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
