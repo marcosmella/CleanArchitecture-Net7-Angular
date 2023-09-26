@@ -1,5 +1,3 @@
-# Important
-
 # ASP.NET Core & EntityFramework Core
 
 This template is a simple startup project to start with ABP
