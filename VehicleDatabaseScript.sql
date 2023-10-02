@@ -2,26 +2,26 @@ USE [master]
 GO
 
 /****** Object:  Database [vehicle]    Script Date: 26/9/2023 01:52:53 ******/
-CREATE DATABASE [vehicleTest] 
-	ON ( NAME = N'vehicleTest', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\vehicleTest.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
-LOG ON ( NAME = N'vehicleTest_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\vehicleTest_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+CREATE DATABASE [vehicle] 
+	ON ( NAME = N'vehicle', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\vehicle.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+LOG ON ( NAME = N'vehicle_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL16.MSSQLSERVER\MSSQL\DATA\vehicle_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
 	
 GO
 
 
 -- change owner to sa
-ALTER AUTHORIZATION ON DATABASE::[vehicleTest] TO [sa]
+ALTER AUTHORIZATION ON DATABASE::[vehicle] TO [sa]
 GO
  
 -- set recovery model to simple 
-ALTER DATABASE [vehicleTest] SET RECOVERY SIMPLE 
+ALTER DATABASE [vehicle] SET RECOVERY SIMPLE 
 GO
  
 -- change compatibility level
-ALTER DATABASE [vehicleTest] SET COMPATIBILITY_LEVEL = 130
+ALTER DATABASE [vehicle] SET COMPATIBILITY_LEVEL = 130
 GO
 
-USE [vehicleTest]
+USE [vehicle]
 GO
 
 CREATE TABLE Category
